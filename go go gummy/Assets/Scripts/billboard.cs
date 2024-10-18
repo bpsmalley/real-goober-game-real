@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class somethign : MonoBehaviour
+public class billboard : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Transform cam;
+
     void Start()
     {
         
@@ -13,6 +14,6 @@ public class somethign : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.LookAt(cam);
     }
 }
