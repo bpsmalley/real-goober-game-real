@@ -11,6 +11,8 @@ public class somethign : MonoBehaviour
     public LayerMask whatIsGround;
     public LayerMask interactable;
 
+    public Animator gummyAnim;
+
 
     void Start()
     {
@@ -19,9 +21,10 @@ public class somethign : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+
         if (Input.GetMouseButtonDown(0))
-        {
+        {   
             Ray myRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
@@ -35,6 +38,15 @@ public class somethign : MonoBehaviour
                 myAgent.SetDestination(hit.point);
             }
 
+        }
+
+        if (myAgent.velocity != Vector3.zero)
+        {
+            gummyAnim.SetBool("isStopped", false);
+        }
+        else if (myAgent.velocity == Vector3.zero)
+        {
+            gummyAnim.SetBool("isStopped", true);
         }
     }
 }
